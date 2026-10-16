@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta name="description" content="A calm, simple place to keep track of what matters today." />
+    <title>Daymark — Make room for what matters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Daymark home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>daymark</span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> Your space, your pace</div>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="sun-icon" aria-hidden="true">✳</span> A LITTLE MORE CLARITY</p>
+          <h1 id="page-title">Make room for<br /><span>what matters.</span></h1>
+          <p class="hero-description">One thing at a time. You’ve got this.</p>
+        </div>
+        <div class="date-card" aria-label="Today's date">
+          <span class="date-label">TODAY</span>
+          <span class="date-day" id="date-day">--</span>
+          <span class="date-month" id="date-month">Loading date</span>
+          <span class="date-decoration" aria-hidden="true">✳</span>
+        </div>
+      </section>
+
+      <section class="task-panel" aria-labelledby="tasks-heading">
+        <div class="panel-heading">
+          <div>
+            <div class="heading-line"><h2 id="tasks-heading">Your list</h2><span class="task-count" id="task-count">0</span></div>
+            <p class="list-caption" id="list-caption">A fresh start is a good place to be.</p>
+          </div>
+          <button class="clear-button" id="clear-completed" type="button" hidden>Clear completed</button>
+        </div>
+
+        <form class="add-form" id="task-form">
+          <label class="sr-only" for="task-input">Add a task</label>
+          <span class="input-plus" aria-hidden="true">+</span>
+          <input id="task-input" name="task" type="text" maxlength="120" placeholder="What would you like to get done?" autocomplete="off" required />
+          <button class="add-button" type="submit"><span>Add task</span><span aria-hidden="true">↗</span></button>
+        </form>
+
+        <div class="list-toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">In progress</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+          </div>
+          <span class="progress-label" id="progress-label">0% complete</span>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+        <div class="empty-state" id="empty-state">
+          <div class="empty-illustration" aria-hidden="true"><span class="empty-spark spark-one">✳</span><span class="empty-spark spark-two">✦</span><span class="empty-check">✓</span></div>
+          <p class="empty-title" id="empty-title">Nothing on your list yet</p>
+          <p class="empty-copy" id="empty-copy">Add a task above and take the first small step.</p>
+        </div>
+        <footer class="panel-footer"><span><span class="footer-star">✳</span> Progress, not perfection.</span><span id="footer-summary">Ready when you are</span></footer>
+      </section>
+      <p class="page-footer">A quieter way to get things done <span>·</span> Your tasks stay on this device</p>
+    </main>
+  </body>
+</html>
